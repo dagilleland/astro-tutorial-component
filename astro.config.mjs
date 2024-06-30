@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
     integrations: [
         starlight({
-            title: 'Docs with Tailwind',
+            title: 'Tutorial Docs with Tailwind',
             social: {
                 github: 'https://github.com/withastro/starlight',
             },
@@ -15,6 +15,7 @@ export default defineConfig({
                     label: 'Guides',
                     items: [
                         // Each item here is one entry in the navigation menu.
+                        { label: 'The Approach', link: '/guides/approach/' },
                         { label: 'Example Guide', link: '/guides/example/' },
                     ],
                 },
