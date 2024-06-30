@@ -2,3 +2,39 @@
 title: Planning the Components
 description: A look at the various Tutorial Components and how they work together.
 ---
+
+- Separation of concerns - the tutorial docs vs. the tutorial components
+  - The docs should be simple `*.mdx` files that focus on the *content* of the tutorial
+  - The components should be "unobtrusive" in a way that they are not "burdensome" to the tutorial author
+    - They should minimize the use of "markup" and allow the tutorial author to write in mostly "markdown" for the content
+- They should have enough of a sense of "portability" so that they can be dropped into virtually any Astro site regardless of the site's layout and design
+  - Default settings that can assume Astro's default layout and design
+  - Easy customization to fit it to any custom layout and design
+- distinguishing the components
+  - `Tracker.astro` - (*external* to the tutorial itself) - sits in the right sidebar over the navigation of the current page/document; links to the various steps in the tutorial (i.e.: there are no "links" on the left-sidebar site navigation); shows progress of the tutorial
+  - `Checklist.astro` - (*inside* a tutorial step/page) - sits anywhere in the document and contains simple checkboxes that the user ticks off to indicate that they have completed a step in the tutorial
+  - `TestYourself.astro` - (*inside* a tutorial step/page) - sits anywhere in the document and contains 
+
+
+## Decisions
+
+Im my design, I'm doing to have to make a series of decisions, each of which will have certain tradeoffs. Here's how I'm going to evaluate and make my decisions.
+
+1. Clearly identify what I'm needing to make a decision on.
+1. If the decision has distinct approaches I could take, list them and identify the tradeoffs of each approach and whether they are mutually exclusive of can be "blended" together.
+1. If the decision has a single approach, explain the goals/benefits of that approach.
+
+### E.g.:
+
+Cross-cutting concerns include *data permanence* and *routing*.
+
+- Permanence
+  - [ ] local storage - allows the user to "leave" and come back to see where they left off
+    - [ ] *Enhancements*
+      - Add a "last viewed" date/time on the tracker for the user to recall when they last visited the tutorial
+      - Add a "reset" icon so that the user can "reset" their progress on a given step/page
+- File/Page Structure
+  - [ ] Do I include it in the "docs" themselves as the "launch" page?
+  - [ ] Do I use nested "step pages"
+    - [ ] !! Check out the routing of the tutorial steps/pages
+  - [ ] Do I leverage Astro's "content collections" to organize the tutorial steps/pages **and/or** do I leverage file/folder structure?
