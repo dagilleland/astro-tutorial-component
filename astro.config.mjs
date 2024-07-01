@@ -17,6 +17,7 @@ export default defineConfig({
                         // Each item here is one entry in the navigation menu.
                         { label: 'The Approach', link: '/guides/approach/' },
                         { label: 'Build Your Own', link: '/tutorial/demo/' },
+                        { label: 'Conclusions', link: '/guides/conclusions/' },
                         { label: 'Example Guide', link: '/guides/example/' },
                     ],
                 },
