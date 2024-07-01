@@ -5,4 +5,16 @@ description: What I learned from building the Astro Tutorial Components.
 
 ## Confessions
 
-First of all, I decided I would *minimize cheating*. I won't look at the code of the components themselves, but I will "peek" occassionally at how the component is being consumed. At first, I hoped to avoid looking at Astro's GitHub repo, but as I started trying to figure out the styling, I found myself caught up with "HTML thinking", but a peek at how they consumed their own `<Checklist>` revealed they passed ordinary Markdown in the slot, and that
+First of all, I decided I would *minimize cheating*. I won't look at the code of the components themselves, but I will "peek" occassionally at how the component is being consumed. At first, I hoped to avoid looking at Astro's GitHub repo, but as I started trying to figure out the styling, I found myself caught up with "HTML thinking", but a peek at how they consumed their own `<Checklist>` revealed they passed ordinary Markdown in the slot, and that ....
+
+https://docs.astro.build/en/guides/content-collections/#rendering-content-to-html
+
+```astro
+---
+import { getEntry } from 'astro:content';
+const entry = await getEntry('blog', 'post-1');
+const { Content, headings } = await entry.render();
+---
+<p>Published on: {entry.data.published.toDateString()}</p>
+<Content />
+```
